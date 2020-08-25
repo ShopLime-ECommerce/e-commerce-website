@@ -1,11 +1,6 @@
-const database = require('./db')
-const User = require('./User')
-const Items = require('./Items')
+const db = require('./db')
 
-// Creating associations for the database models
+// Registering the models from models folder
+require('./models')
 
-module.exports = {
-	database,
-	User,
-	Items,
-}
+module.exports = db
