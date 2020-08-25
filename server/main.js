@@ -1,6 +1,6 @@
 const PORT = 8080
 const server = require('./index')
-const { database } = require('./db/database')
+const database = require('./db/database')
 
 const init = async () => {
 	try {

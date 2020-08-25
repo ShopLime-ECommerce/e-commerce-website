@@ -1,3 +1,8 @@
 const Sequelize = require('sequelize')
 
-module.exports = new Sequelize('postgres://postgres@localhost:5432/shoplime', { logging: false })
+// Setting up the database
+const database = new Sequelize('postgres://postgres@localhost:5432/shoplime', {
+	logging: false,
+})
+
+module.exports = database
