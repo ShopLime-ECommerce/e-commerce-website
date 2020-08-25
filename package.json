@@ -1,21 +1,22 @@
 {
-  "name": "e-commerce-website",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "concurrently": "^5.3.0",
-    "express": "^4.17.1",
-    "morgan": "^1.10.0",
-    "pg": "^8.3.2",
-    "sequelize": "^6.3.4"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.4"
-  }
+	"name": "e-commerce-website",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start": "node server/main.js",
+		"server": "nodemon server/main.js"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"concurrently": "^5.3.0",
+		"express": "^4.17.1",
+		"morgan": "^1.10.0",
+		"pg": "^8.3.2",
+		"sequelize": "^6.3.4"
+	},
+	"devDependencies": {
+		"nodemon": "^2.0.4"
+	}
 }

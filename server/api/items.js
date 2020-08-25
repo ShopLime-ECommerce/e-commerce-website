@@ -4,6 +4,6 @@ router.get('/', (req, res) => {
     try {
 
     } catch (error) {
-
+        next(error)
     }
 })
