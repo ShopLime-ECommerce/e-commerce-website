@@ -1,13 +1,15 @@
 const router = require('express').Router()
 const Items = require('../db/Items')
 
-router.get('/', (req, res) => {
+router.get('/', (req, res, next) => {
 	try {
 		const items = Items.findAll()
-		console.log(items)
+		res.send(items)
 	} catch (error) {
 		next(error)
 	}
 })
 
 module.exports = router
+
+
