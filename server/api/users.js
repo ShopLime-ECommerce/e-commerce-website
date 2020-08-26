@@ -8,6 +8,12 @@ router.get('/', (req, res, next) => {
     } catch (error) {
         next(error)
     }
+	try {
+		const users = User.findAll({ identity: ['name', 'address', 'email'] })
+		res.send(users)
+	} catch (error) {
+		next(error)
+	}
 })
 
 module.exports = router

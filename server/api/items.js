@@ -1,10 +1,10 @@
 const router = require('express').Router()
 const Item = require('../db/models/Item')
 
-router.get('/', (req, res) => {
+router.get('/', (req, res, next) => {
 	try {
 		const items = Item.findAll()
-		console.log(items)
+		res.send(items)
 	} catch (error) {
 		next(error)
 	}
