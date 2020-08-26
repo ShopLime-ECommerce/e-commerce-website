@@ -11,19 +11,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-.buttons {
-  background-color: #25b12d;
-  display: flex;
-  justify-content: flex-end;
-  height: 50px;
-}
-
-.buttons button {
-  font-size: 25px;
-  margin-left: 5px;
-  margin-right: 5px;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-}

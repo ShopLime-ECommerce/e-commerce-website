@@ -1,0 +1,6 @@
+.item-wrapper{
+    border: 1px solid black;
+    margin: 5px;
+    text-align: center;
+    min-height: 400px;
+}

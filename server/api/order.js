@@ -1,36 +1,37 @@
-// const express = require('express');
-const Sequelize = require('sequelize');
+const express = require('express');
+const Sequelize = require('Sequelize');
 const router = express.Router();
 const Item = require('../db/models/Item');
+const Order = require('../db/order')
+const User = require('../db/models/User')
 
 //gettting all the items
 router.get('/', async (req, res)=>{
-    let items = await Item.findAll();
-    res.json(items)
+    let orders = await Order.findAll();
+    res.json(orders)
 });
 
 //getting an item by id
 router.get('/:id', async(req, res)=>{
     let id = req.params.id;
-    let item = await Item.findById(id)
+    let order = await Order.findById(id)
     .catch((error)=>{
         res.json(error)
     })
-    res.json(item)
+    res.json(order)
 });
 
 //adding a new item
 router.post('/', async(req, res)=>{
-    let {id, name, imageUrl,price, description} = req.body;
-    await Item.create({
+    let {id, user_id, item_id,status} = req.body;
+    await Order.create({
         id: id,
-        name: name,
-        imageUrl: imageUrl,
-        price: price,
-        description: description
+        userId: user_id,
+        itemId: item_id,
+        status: status
     })
-    .then ((newItem)=>{
-        res.json(newItem)
+    .then ((newOrder)=>{
+        res.json(newOrder)
     })
     .catch((error)=>{
 
@@ -48,6 +49,5 @@ router.post('/', async(req, res)=>{
 // router.delete('/',(req, res)=>{
 //     res.json()
 // });
-
 
 module.exports = router;
