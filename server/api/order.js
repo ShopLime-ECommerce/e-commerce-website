@@ -1,9 +1,9 @@
 const express = require('express');
 const Sequelize = require('Sequelize');
 const router = express.Router();
-const Item = require('../models/order');
-const Order = require('../models/order')
-const User = require('../models/user')
+const Item = require('../db/models/Item');
+const Order = require('../db/order')
+const User = require('../db/models/User')
 
 //gettting all the items
 router.get('/', async (req, res)=>{
