@@ -1,9 +1,9 @@
 const router = require('express').Router()
-const Items = require('../db/models/Items')
+const Item = require('../db/models/Item')
 
 router.get('/', (req, res) => {
 	try {
-		const items = Items.findAll()
+		const items = Item.findAll()
 		console.log(items)
 	} catch (error) {
 		next(error)

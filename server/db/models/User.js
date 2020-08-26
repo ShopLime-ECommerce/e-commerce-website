@@ -1,8 +1,13 @@
-const database = require('./database')
+const database = require('../database')
 const { Sequelize } = require('sequelize')
 
-const Users = database.define('user', {
-	name: {
+const User = database.define('user', {
+	firstName: {
+		type: Sequelize.STRING,
+		allowNull: false,
+		validate: { notEmpty: true },
+	},
+	lastName: {
 		type: Sequelize.STRING,
 		allowNull: false,
 		validate: { notEmpty: true },
@@ -29,4 +34,4 @@ const Users = database.define('user', {
 	},
 })
 
-module.exports = Users
+module.exports = User

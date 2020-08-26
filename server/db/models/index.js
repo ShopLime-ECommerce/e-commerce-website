@@ -1,5 +1,5 @@
 const User = require('./User')
-const Items = require('./Items')
+const Items = require('./Item')
 const Order = require('./Order')
 
 /*
@@ -7,12 +7,12 @@ const Order = require('./Order')
     and exporting the models for later use
 */
 
-User.hasMany(Orders)
+User.hasMany(Order)
 Order.belongsTo(User)
-Order.hasMany(Items)
+Order.hasMany(Item)
 
 module.exports = {
 	User,
-	Items,
+	Item,
 	Order,
 }
