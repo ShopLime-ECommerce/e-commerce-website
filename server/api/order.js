@@ -1,14 +1,12 @@
 const express = require('express')
-const Sequelize = require('Sequelize')
 const router = express.Router()
-const Item = require('../db/models/item')
-const Order = require('../db/model/order')
-const User = require('../db/models/user')
+const Order = require('../db/models/order')
 
 // Gettting all the items
 router.get('/', async (req, res) => {
-	let orders = await Order.findAll()
-	res.json(orders)
+	console.log('I got to this page')
+	// let orders = await Order.findAll()
+	// res.json(orders)
 })
 
 // Getting an item by id

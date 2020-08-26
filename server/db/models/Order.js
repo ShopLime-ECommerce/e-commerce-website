@@ -1,7 +1,6 @@
-const { Sequelize, DataTypes, Model } = require('sequelize')
+const { DataTypes, Model } = require('sequelize')
 const sequelize = require('../database')
 const User = require('./user')
-const Item = require('./item')
 
 class Order extends Model {}
 
@@ -36,6 +35,4 @@ Order.init(
 
 Order.belongsTo(User)
 
-// the defined model is the class itself
-console.log(Order === sequelize.models.Order) // true
 module.exports = Order

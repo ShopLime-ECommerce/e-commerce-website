@@ -1,6 +1,4 @@
-const Sequelize = require('sequelize')
-const Model = Sequelize.Model
-const DataTypes = Sequelize.DataTypes
+const { DataTypes, Model } = require('sequelize')
 const sequelize = require('../database')
 
 class Item extends Model {}
@@ -36,8 +34,5 @@ Item.init(
 		modelName: 'item', // We need to choose the model name
 	}
 )
-
-// the defined model is the class itself
-console.log(Item === sequelize.models.Item) // true
 
 module.exports = Item

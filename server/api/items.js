@@ -4,6 +4,7 @@ const Item = require('../db/models/item')
 
 // Gettting all the items
 router.get('/', async (req, res) => {
+	console.log('getting called')
 	let items = await Item.findAll()
 	res.json(items)
 })
