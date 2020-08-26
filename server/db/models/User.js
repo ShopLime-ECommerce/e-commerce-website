@@ -1,4 +1,4 @@
-const { Sequelize, DataTypes, Model } = require('sequelize')
+const { DataTypes, Model } = require('sequelize')
 const sequelize = require('../database')
 
 class User extends Model {}
@@ -50,6 +50,4 @@ User.init(
 	}
 )
 
-// the defined model is the class itself
-console.log(User === sequelize.models.User) // true
 module.exports = User
