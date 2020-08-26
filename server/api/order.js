@@ -1,12 +1,14 @@
-const express = require('express')
-const router = express.Router()
+const router = require('express').Router()
 const Order = require('../db/models/order')
 
 // Gettting all the items
-router.get('/', async (req, res) => {
-	console.log('I got to this page')
-	// let orders = await Order.findAll()
-	// res.json(orders)
+router.get('/', async (req, res, next) => {
+	try {
+		const { data } = await Order.findAll()
+		res.send(data)
+	} catch (error) {
+		next(error)
+	}
 })
 
 // Getting an item by id
