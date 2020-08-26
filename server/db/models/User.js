@@ -5,7 +5,6 @@ class User extends Model {}
 
 User.init(
 	{
-		// Model attributes are defined here
 		id: {
 			type: DataTypes.INTEGER,
 			allowNull: false,
@@ -17,7 +16,6 @@ User.init(
 		},
 		imageUrl: {
 			type: DataTypes.STRING,
-			// allowNull defaults to true
 		},
 		email: {
 			type: DataTypes.STRING,
@@ -44,7 +42,6 @@ User.init(
 		},
 	},
 	{
-		// Other model options go here
 		sequelize, // We need to pass the connection instance
 		modelName: 'user', // We need to choose the model name
 	}
