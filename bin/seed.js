@@ -1,5 +1,5 @@
 const database = require('../server/db/database')
-const { User, Item, Order } = require('../server/db/models/models')
+const { User, Item, Order } = require('../server/db/models/')
 
 /*
     Seeding the database and filling it with dummy data
@@ -134,6 +134,11 @@ const users = [
 
 seed = async () => {
 	await database.sync({ forced: true })
+	await User.bulkCreate(users)
+	await Item.bulkCreate(lemons)
+	await Order.bulkCreate(orders)
 }
+
+seed()
 
 module.exports = seed

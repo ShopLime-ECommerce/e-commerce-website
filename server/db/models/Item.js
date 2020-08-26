@@ -5,7 +5,6 @@ class Item extends Model {}
 
 Item.init(
 	{
-		// Model attributes are defined here
 		id: {
 			type: DataTypes.INTEGER,
 			allowNull: false,
@@ -23,13 +22,11 @@ Item.init(
 			allowNull: false,
 			defaultValue: 0,
 		},
-
 		description: {
 			type: DataTypes.TEXT,
 		},
 	},
 	{
-		// Other model options go here
 		sequelize, // We need to pass the connection instance
 		modelName: 'item', // We need to choose the model name
 	}
