@@ -1,41 +1,29 @@
-const path = require('path')
 const express = require('express')
-const morgan = require('morgan')
 const app = express()
+const morgan = require('morgan')
 const database = require('./db/database')
-
+const bodyParser = require('body-parser')
+require('dotenv').config()
+const port = process.env.PORT
+console.log(port)
 app.use(morgan('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-
-// API routes defined for users and items
-app.use('/api', require('./api'))
-
-// Static middleware to serve files from the public folder
-app.use(express.static(path.join(__dirname, '..', 'public')))
-
-const PORT = 8080
-
-app.get('*', (req, res) => {
-	res.sendFile(path.join(__dirname, '..', 'public', 'index.html'))
+app.use(bodyParser.json())
+database
+	.authenticate()
+	.then(() => {
+		return console.log('Connection has been established successfully.')
+	})
+	.catch((error) => {
+		return console.error('Unable to connect to the database:', error)
+	})
+database.sync({ forced: true })
+app.get('/', (req, res) => {
+	res.send('The server is working! ')
 })
-
-// Error handling function
-app.use((err, req, res, next) => {
-	res.status(err.status || 500).send(err.message || 'Internal server error.')
+app.use('/items', require('./db/models/item'))
+app.use('/orders', require('./db/models/order'))
+app.listen(port, () => {
+	console.log(`Server started on port: ${port}`)
 })
-
-const init = async () => {
-	try {
-		await database.sync()
-		app.listen(PORT, () => {
-			console.log(`Listening on ${PORT}`)
-		})
-	} catch (error) {
-		console.log(`Error occured while setting up server: ${error}`)
-	}
-}
-
-init()
-
-module.exports = app

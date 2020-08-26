@@ -1,5 +1,5 @@
 const database = require('../server/db/database')
-const { User, Item, Order } = require('../server/db/models')
+const { User, Item, Order } = require('../server/db/models/models')
 
 /*
     Seeding the database and filling it with dummy data

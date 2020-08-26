@@ -1,37 +1,55 @@
-const database = require('../database')
-const { Sequelize } = require('sequelize')
+const { Sequelize, DataTypes, Model } = require('sequelize')
+const sequelize = require('../database')
 
-const User = database.define('user', {
-	firstName: {
-		type: Sequelize.STRING,
-		allowNull: false,
-		validate: { notEmpty: true },
-	},
-	lastName: {
-		type: Sequelize.STRING,
-		allowNull: false,
-		validate: { notEmpty: true },
-	},
-	imageUrl: {
-		type: Sequelize.TEXT,
-		defaultValue:
-			'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/220px-User_icon_2.svg.png',
-	},
-	address: {
-		type: Sequelize.STRING,
-		allowNull: false,
-		validate: { notEmpty: true },
-	},
-	email: {
-		type: Sequelize.STRING,
-		allowNull: false,
-		validate: { isEmail: true, notEmpty: true },
-	},
-	password: {
-		type: Sequelize.STRING,
-		allowNull: false,
-		validate: { notEmpty: true },
-	},
-})
+class User extends Model {}
 
+User.init(
+	{
+		// Model attributes are defined here
+		id: {
+			type: DataTypes.INTEGER,
+			allowNull: false,
+			primaryKey: true,
+		},
+		name: {
+			type: DataTypes.STRING,
+			allowNull: false,
+		},
+		imageUrl: {
+			type: DataTypes.STRING,
+			// allowNull defaults to true
+		},
+		email: {
+			type: DataTypes.STRING,
+			allowNull: false,
+			unique: true,
+			validate: {
+				isEmail: true,
+			},
+		},
+		password: {
+			type: DataTypes.STRING,
+			allowNull: false,
+			validate: {
+				isLongEnough: (val) => {
+					if (val.length < 7) {
+						throw new Error(' Password has to be longer than 6 characters')
+					}
+				},
+			},
+		},
+		address: {
+			type: DataTypes.STRING,
+			allowNull: false,
+		},
+	},
+	{
+		// Other model options go here
+		sequelize, // We need to pass the connection instance
+		modelName: 'user', // We need to choose the model name
+	}
+)
+
+// the defined model is the class itself
+console.log(User === sequelize.models.User) // true
 module.exports = User

@@ -1,22 +1,43 @@
-const database = require('../database')
-const { Sequelize } = require('sequelize')
+const Sequelize = require('sequelize')
+const Model = Sequelize.Model
+const DataTypes = Sequelize.DataTypes
+const sequelize = require('../database')
 
-const Item = database.define('item', {
-	name: {
-		type: Sequelize.STRING,
-		allowNull: false,
+class Item extends Model {}
+
+Item.init(
+	{
+		// Model attributes are defined here
+		id: {
+			type: DataTypes.INTEGER,
+			allowNull: false,
+			primaryKey: true,
+		},
+		name: {
+			type: DataTypes.STRING,
+			allowNull: false,
+		},
+		imageUrl: {
+			type: DataTypes.STRING,
+		},
+		price: {
+			type: DataTypes.DOUBLE,
+			allowNull: false,
+			defaultValue: 0,
+		},
+
+		description: {
+			type: DataTypes.TEXT,
+		},
 	},
-	price: {
-		type: Sequelize.INTEGER,
-	},
-	description: {
-		type: Sequelize.TEXT,
-	},
-	imageUrl: {
-		type: Sequelize.TEXT,
-		defaultValue:
-			'https://images.unsplash.com/photo-1568595502714-5a8aa68c5fd7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2133&q=80',
-	},
-})
+	{
+		// Other model options go here
+		sequelize, // We need to pass the connection instance
+		modelName: 'item', // We need to choose the model name
+	}
+)
+
+// the defined model is the class itself
+console.log(Item === sequelize.models.Item) // true
 
 module.exports = Item
