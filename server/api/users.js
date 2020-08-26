@@ -1,15 +1,13 @@
 const router = require('express').Router()
-const User = require('../db/User')
+const User = require('../db/models/User')
 
 router.get('/', (req, res, next) => {
-    try {
-        const user = User.findAll({
-            identity: ['name', 'address', 'email']
-        })
+	try {
+		const users = User.findAll({ identity: ['name', 'address', 'email'] })
 		res.send(user)
-    } catch (error) {
-        next(error)
-    }
+	} catch (error) {
+		next(error)
+	}
 })
 
-module.exports = router;
+module.exports = router
