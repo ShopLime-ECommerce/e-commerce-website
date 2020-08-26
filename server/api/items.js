@@ -1,9 +1,9 @@
 const router = require('express').Router()
-const Items = require('../db/models/Items')
+const Item = require('../db/models/Item')
 
 router.get('/', (req, res, next) => {
 	try {
-		const items = Items.findAll()
+		const items = Item.findAll()
 		res.send(items)
 	} catch (error) {
 		next(error)
@@ -18,5 +18,3 @@ router.get('/:id', (req, res) => {
 })
 
 module.exports = router
-
-
