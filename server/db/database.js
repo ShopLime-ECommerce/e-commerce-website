@@ -2,12 +2,12 @@ const { Sequelize } = require('sequelize')
 require('dotenv').config()
 
 const sequelize = new Sequelize(
-	process.env.DB_NAME,
-	process.env.DB_USER,
-	process.env.DB_PASS,
+	'shoplime',
+	'postgres',
+	'1105',
 	{
-		host: process.env.DB_HOST,
-		dialect: process.env.DB_TYPE,
+		host: 'localhost',
+		dialect: 'postgres',
 		logging: false,
 	}
 )
