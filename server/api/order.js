@@ -39,13 +39,37 @@ router.post('/', async (req, res) => {
 
 // TODO
 // //updating an existing item
-// router.put('/',(req, res)=>{
-//     res.json()
-// });
+router.put('/',(req, res)=>{
+	let { id, user_id, item_id, status } = req.body
+	await Order.update({
+		id: id,
+		userId: user_id,
+		itemId: item_id,
+		status: status,
+	})
+		.then((newOrder) => {
+			res.json(newOrder)
+		})
+		.catch((error) => {
+			res.json(error)
+		})
+});
 
 // //deleting an existing item
-// router.delete('/',(req, res)=>{
-//     res.json()
-// });
+router.delete('/',(req, res)=>{
+	let { id, user_id, item_id, status } = req.body
+	await Order.delete({
+		id: id,
+		userId: user_id,
+		itemId: item_id,
+		status: status,
+	})
+		.then((newOrder) => {
+			res.json(newOrder)
+		})
+		.catch((error) => {
+			res.json(error)
+		})
+});
 
 module.exports = router
