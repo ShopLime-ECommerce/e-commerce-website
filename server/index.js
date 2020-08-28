@@ -9,16 +9,21 @@ app.use(bodyParser.json())
 app.use('/api', require('./api'))
 
 database.authenticate().then(() => {
-		return console.log('Connection has been established successfully.')
-	}).catch((error) => {
-		return console.error('Unable to connect to the database:', error)
-	})
+    return console.log('Connection has been established successfully.')
+}).catch((error) => {
+    return console.error('Unable to connect to the database:', error)
+})
 
-database.sync({ forced: true })
+database.sync({ forced: true }).then(() => {
+    console.log('Synced the database successfully')
+}).catch(() => {
+    console.log('Something went wrong while syncing the database')
+})
+
 app.get('/', (req, res) => {
-	res.send('The server is working! ')
+    res.send('The server is working! ')
 })
 
 app.listen(8080, () => {
-	console.log(`Server started on port: 8080`)
+    console.log(`Server started on port: 8080`)
 })
