@@ -19,16 +19,13 @@ class Item extends Component {
 }
 export default Item
 
-
-
-
 // export default data = {
 //     products: [{
 //         id:'1',
-//         name: 'Avocado', 
+//         name: 'Avocado',
 //         category: 'veggie',
 //         image: '/images/avocadonew.jpg',
-//         price: 7, 
+//         price: 7,
 //         brand: 'Organic',
 //         rating: 4.5,
 //         numReviews: 10
@@ -36,10 +33,10 @@ export default Item
 //     },
 //     {
 //         id:'2',
-//         name: 'Melon', 
+//         name: 'Melon',
 //         category: 'fruit',
 //         image: '/images/fruit.jpg',
-//         price: 5, 
+//         price: 5,
 //         brand: 'Organic',
 //         rating: 3.5,
 //         numReviews: 10
@@ -47,10 +44,10 @@ export default Item
 //     },
 //     {
 //         id:'3',
-//         name: 'Okra', 
+//         name: 'Okra',
 //         category: 'veggie',
 //         image: '/images/fruit.jpg',
-//         price: 5, 
+//         price: 5,
 //         brand: 'Organic',
 //         rating: 4,
 //         numReviews: 8
@@ -58,4 +55,3 @@ export default Item
 //     },
 // ]
 // }
-
