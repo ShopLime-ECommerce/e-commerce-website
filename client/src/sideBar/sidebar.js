@@ -31,10 +31,8 @@ class Sidebar extends Component {
 		})
 
 		const dropdownPaths = [
-			{ path: '/form-elements', state: 'formElementsMenuOpen' },
-			{ path: '/tables', state: 'tablesMenuOpen' },
 			{ path: '/charts', state: 'chartsMenuOpen' },
-			{ path: '/user-pages', state: 'userPagesMenuOpen' },
+			{ path: '/user-pages', state: 'userPagesMenuOpen' }
 		]
 
 		dropdownPaths.forEach((obj) => {
@@ -51,8 +49,7 @@ class Sidebar extends Component {
 					<a className="sidebar-brand brand-logo" href="index.html"></a>
 					<a
 						className="sidebar-brand brand-logo-mini pt-3"
-						href="index.html"
-					></a>
+						href="index.html"></a>
 				</div>
 				<ul className="nav">
 					<li className="nav-item nav-profile not-navigation-link">
@@ -183,9 +180,7 @@ class Sidebar extends Component {
 												? 'nav-link active'
 												: 'nav-link'
 										}
-										to="/basic-ui/typography"
-									>
-										Typography
+										to="/basic-ui/typography">
 									</Link>
 								</li>
 							</ul>
@@ -200,7 +195,6 @@ class Sidebar extends Component {
 					>
 						<Link className="nav-link" to="/form-elements/basic-elements">
 							<i className="mdi mdi-format-list-bulleted menu-icon"></i>
-							<span className="menu-title">Form Elements</span>
 						</Link>
 					</li>
 					<li
@@ -208,20 +202,6 @@ class Sidebar extends Component {
 							this.isPathActive('/tables') ? 'nav-item active' : 'nav-item'
 						}
 					>
-						<Link className="nav-link" to="/tables/basic-table">
-							<i className="mdi mdi-table-large menu-icon"></i>
-							<span className="menu-title">Tables</span>
-						</Link>
-					</li>
-					<li
-						className={
-							this.isPathActive('/icons') ? 'nav-item active' : 'nav-item'
-						}
-					>
-						<Link className="nav-link" to="/icons/font-awesome">
-							<i className="mdi mdi-account-box-outline menu-icon"></i>
-							<span className="menu-title">Icons</span>
-						</Link>
 					</li>
 					<li
 						className={
