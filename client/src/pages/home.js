@@ -1,7 +1,7 @@
 import React from 'react'
 import Item from '../Components/item'
 
-class Home extends React.Component {
+export default class Home extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -34,4 +34,3 @@ class Home extends React.Component {
 		)
 	}
 }
-export default Home
