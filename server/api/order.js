@@ -1,41 +1,44 @@
-const Sequelize = require('sequelize')
 const router = require('express').Router()
-const Item = require('../db/models/item')
+const Order = require('../db/models/order')
 
 // Gettting all the items
-router.get('/', async (req, res) => {
-	console.log('getting called')
-	let items = await Item.findAll()
-	res.json(items)
+router.get('/', async (req, res, next) => {
+	try {
+		const { data } = await Order.findAll()
+		res.send(data)
+	} catch (error) {
+		next(error)
+	}
 })
 
 // Getting an item by id
 router.get('/:id', async (req, res) => {
 	let id = req.params.id
-	let item = await Item.findById(id).catch((error) => {
+	let order = await Order.findById(id).catch((error) => {
 		res.json(error)
 	})
-	res.json(item)
+	res.json(order)
 })
 
 // Adding a new item
 router.post('/', async (req, res) => {
-	let { id, name, imageUrl, price, description } = req.body
-	await Item.create({
+	let { id, user_id, item_id, status } = req.body
+	await Order.create({
 		id: id,
-		name: name,
-		imageUrl: imageUrl,
-		price: price,
-		description: description,
+		userId: user_id,
+		itemId: item_id,
+		status: status,
 	})
-		.then((newItem) => {
-			res.json(newItem)
+		.then((newOrder) => {
+			res.json(newOrder)
 		})
 		.catch((error) => {
 			res.json(error)
 		})
 })
 
+// TODO
+// //updating an existing item
 router.put('/',(req, res)=>{
 	let { id, user_id, item_id, status } = req.body
 	await Order.update({
