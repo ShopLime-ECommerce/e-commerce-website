@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Route, Link } from 'react-router-dom'
-import Home from './pages/home'
+import Home from './components/home'
 import Dropdown from 'react'
 
 export default class App extends React.Component {
