@@ -8,6 +8,7 @@ class Reviews extends Component {
       this.props.handleFetchReviews(this.props.product.id);
     }
   }
+//testing
 
   componentDidUpdate(prevProps) {
     if (prevProps.product !== this.props.product) {

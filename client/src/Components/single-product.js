@@ -8,6 +8,7 @@ import ReviewForm from './review-form'
 
 const SingleProduct = (props) => {
   const { product } = props
+//testing
 
   return (
     <div className="single-product-content">

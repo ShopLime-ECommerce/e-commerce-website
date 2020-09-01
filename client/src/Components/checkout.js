@@ -15,6 +15,7 @@ class Checkout extends React.Component {
     this.state = {
       view: 'checkout'
     }
+//testing
 
     this.paymentCallback = this.paymentCallback.bind(this);
   }

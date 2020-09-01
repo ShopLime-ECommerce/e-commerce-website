@@ -11,6 +11,7 @@ class AddItems_Cart extends Component
       addAlert: false
     }
   }
+//testing
 
   handleAddToCart(id, price) {
     this.showAlert();

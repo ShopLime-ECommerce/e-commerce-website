@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { AddToCart } from "../store";
 import AddItem_Cart from "./AddItem_Cart";
 import StarRating from "./star-rating";
+//testing
 
 export default function ProductPanel(props) {
   const { product } = props;

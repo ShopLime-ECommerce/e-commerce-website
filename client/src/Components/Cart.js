@@ -11,6 +11,7 @@ import {
   fetchProductsForCart,
 } from "../store";
 
+//testing
 
 class InCart extends React.Component {
   componentDidMount() {

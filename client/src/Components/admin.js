@@ -9,6 +9,7 @@ const mapState = (state) => {
     user: state.user,
   };
 };
+//testing
 
 const mapDispatch = (dispatch) => {
   return {

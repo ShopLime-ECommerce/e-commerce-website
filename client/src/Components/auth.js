@@ -7,6 +7,8 @@ import { withRouter, Link } from "react-router-dom";
 /**
  * COMPONENT
  */
+//testing
+//testing
 
 class Auth extends React.Component {
   constructor() {

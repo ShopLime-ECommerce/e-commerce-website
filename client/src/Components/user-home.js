@@ -6,6 +6,8 @@ import PastOrders from './past-orders'
 /**
  * COMPONENT
  */
+//testing
+
 export const UserHome = (props) => {
   const {email} = props
 

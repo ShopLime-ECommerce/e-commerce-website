@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { logout } from "../store";
+//testing
 
 function Header(props) {
   const { isLoggedIn, handleLogoutClick } = props;
