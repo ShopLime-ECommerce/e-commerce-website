@@ -11,9 +11,7 @@ app.get('*', (req, res, next) => {
 
 db.sync({ force: true })
 	.then(() => console.log('Succesfully synced the database'))
-	.catch((error) => {
-		console.log('Something went wrong: ', error)
-	})
+	.catch((error) => console.log('Something went wrong: ', error))
 
 app.listen(8080, () => console.log('Listening on port 8080'))
 

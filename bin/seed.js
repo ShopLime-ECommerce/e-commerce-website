@@ -72,32 +72,38 @@ const orders = [
 	{
 		id: 1,
 		userId: 1,
-		type: 'fulfilled',
+		itemId: 1,
+		status: 'fulfilled',
 	},
 	{
 		id: 2,
 		userId: 2,
-		type: 'fulfilled',
+		itemId: 2,
+		status: 'fulfilled',
 	},
 	{
 		id: 3,
 		userId: 3,
-		type: 'pending',
+		itemId: 3,
+		status: 'pending',
 	},
 	{
 		id: 4,
 		userId: 4,
-		type: 'pending',
+		itemId: 4,
+		status: 'pending',
 	},
 	{
 		id: 5,
 		userId: 5,
-		type: 'pending',
+		itemId: 5,
+		status: 'pending',
 	},
 	{
 		id: 6,
 		userId: 6,
-		type: 'fulfilled',
+		itemId: 6,
+		status: 'fulfilled',
 	},
 ]
 
@@ -110,6 +116,7 @@ const users = [
 		address: '896 Deercove Drive Dallas, TX 75247',
 		email: 'franciscogrande@gmailcom',
 		password: 'password',
+		role: 'user',
 	},
 	{
 		id: 2,
@@ -119,6 +126,7 @@ const users = [
 		address: '4431 Conifer Drive Everett, WA 98208 ',
 		email: 'deborahgrant@yahoo.com',
 		password: 'password',
+		role: 'user',
 	},
 	{
 		id: 3,
@@ -128,6 +136,7 @@ const users = [
 		address: '3805 Ritter Avenue Warren, MI 48092 ',
 		email: 'amypark@gmail.com',
 		password: 'password',
+		role: 'user',
 	},
 	{
 		id: 4,
@@ -137,6 +146,7 @@ const users = [
 		address: '3304 Main Street Redmond, WA 98052 ',
 		email: 'colincarter@mail.com',
 		password: 'password',
+		role: 'user',
 	},
 	{
 		id: 5,
@@ -146,6 +156,7 @@ const users = [
 		address: '1680 Pickens Way Canton, TX 75103',
 		email: 'randalljackson@gmail.com',
 		password: 'password',
+		role: 'user',
 	},
 	{
 		id: 6,
@@ -155,11 +166,12 @@ const users = [
 		address: '4967 Victoria Street Chicago, IL 60606 ',
 		email: 'troyrodriguez@mail.com',
 		password: 'password',
+		role: 'user',
 	},
 ]
 
 seed = async () => {
-	await database.sync({ forced: true })
+	await database.sync({ force: true })
 	await User.bulkCreate(users)
 	await Item.bulkCreate(lemons)
 	await Order.bulkCreate(orders)
