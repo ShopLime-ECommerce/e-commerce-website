@@ -1,21 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="theme-color" content="#000000" />
-		<meta
-			name="description"
-			content="Web site created using create-react-app"
-		/>
-		<link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-		<link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-		
-		<title>React App</title>
-	</head>
-	<body>
-		<noscript>You need to enable JavaScript to run this app.</noscript>
-		<div id="root"></div>
-	</body>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css"/>
+        <title>ShopLime</title>
+    </head>
+
+    <body>
+<div class="grid-container">
+    <header class="header">
+        <div class="brand">
+            <button onclick="openMenu()">
+            &#9776;
+            </button>
+            <a href="index.html">ShopLime</a>
+        </div>
+        <div class="header-links">
+            <a href="cart.html">Cart</a>
+            <a href="signin.html">Sign In</a>
+        </div>
+    </header>
+    <aside class="sidebar">
+        <h3>Shopping Categories</h3>
+         <button class="sidebar-close-button" onclick="closeMenu()">X</button>
+        <ul>
+            <li>
+                <a href="index.html">Fruits</a>
+            </li>
+​
+                <li>
+                    <a href="index.html">Veggies</a>
+                </li>
+​
+        </ul>
+    </aside>
+
+    <main class="main">
+        <div class="content">
+            <ul class="products">
+
+                <li>
+                  <div class="product">
+                  <img class="product-image" src="images/melon.jpg" alt="product">
+                   <div class="product-name">
+                    <a href="product.html">Melon</a>
+                </div>
+                   <div class="product-brand">Organic</div>
+                    <div class="product-price">$7</div>
+                    <div class="product-rating">4.5 Stars (10 Reviews)</div>
+                </div>
+            </li>
+​
+            <li>
+                <div class="product"> </div>
+                <img class="product-image" src="images/avocadonew.jpg" alt="product">
+                 <div class="product-name">
+                  <a href="product.html">Avocado</a>
+              </div>
+                 <div class="product-brand">Organic</div>
+                  <div class="product-price">$12</div>
+                  <div class="product-rating">4.5 Stars (10 Reviews)</div>
+              </div>
+          </li>
+        </ul>
+    </div>
+    </main>
+
+    <footer class="footer">
+        All right reserved.
+    </footer>
+</div>
+<script>
+function openMenu(){
+document.querySelector(".sidebar").classList.add("open");
+}
+function closeMenu(){
+    document.querySelector(".sidebar").classList.remove("open");
+}
+</script>
+</body>
 </html>
