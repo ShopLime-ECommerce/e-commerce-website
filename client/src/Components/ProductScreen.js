@@ -25,9 +25,7 @@ function ProductScreen(props) {
 			dispatch({ type: PRODUCT_REVIEW_SAVE_RESET })
 		}
 		dispatch(detailsProduct(props.match.params.id))
-		return () => {
-			//
-		}
+		return () => {}
 	}, [productSaveSuccess])
 	const submitHandler = (e) => {
 		e.preventDefault()
