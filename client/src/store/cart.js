@@ -1,21 +1,33 @@
 import axios from 'axios'
-import history from '../history'// NOTE: PLACE TOTAL ON CART/**
+import history from '../history'
+
+// NOTE: PLACE TOTAL ON CART
+
+/**
  * ACTION TYPES
  */
 const GET_CART = 'GET_CART'
 const ADD_TO_CART = 'ADD_TO_CART'
 const CLEAR_CART = 'CLEAR_CART'
 const REMOVE_ITEM = 'REMOVE_ITEM'
-const REMOVE_ALL_ITEM = 'REMOVE_ALL_ITEM'/**
+const REMOVE_ALL_ITEM = 'REMOVE_ALL_ITEM'
+
+/**
  * INITIAL STATE
  */
-const defaultCart = { myCart: [], total: 0 }/**
+const defaultCart = { myCart: [], total: 0 }
+
+/**
  * ACTION CREATORS
  */
-const getCart = cart => ({type: GET_CART, cart})export const clearCart = () => {
+const getCart = cart => ({type: GET_CART, cart})
+
+export const clearCart = () => {
   localStorage.removeItem('cart');
   return {type: CLEAR_CART}
-}export const removeItem = id => {
+}
+
+export const removeItem = id => {
   const currentCart = JSON.parse(localStorage.getItem('cart'))
   currentCart.myCart.forEach((item, index) => {
     if (item.id === id) {
@@ -27,7 +39,9 @@ const getCart = cart => ({type: GET_CART, cart})export const clearCart = () => {
   let stringCart = JSON.stringify(currentCart)
   localStorage.setItem('cart', stringCart)
   return {type: REMOVE_ITEM, currentCart}
-}export const removeAllItem = id => {
+}
+
+export const removeAllItem = id => {
   const currentCart = JSON.parse(localStorage.getItem('cart'))
   currentCart.myCart.forEach((item, index) => {
     if (item.id === id) {
@@ -38,7 +52,9 @@ const getCart = cart => ({type: GET_CART, cart})export const clearCart = () => {
   let stringCart = JSON.stringify(currentCart)
   localStorage.setItem('cart', stringCart)
   return {type: REMOVE_ITEM, currentCart}
-}/**
+}
+
+/**
  * THUNK CREATORS
  */
 // export const fetchCart = () =>
@@ -46,11 +62,15 @@ const getCart = cart => ({type: GET_CART, cart})export const clearCart = () => {
 //     axios.get('/api/categories')
 //       .then(res =>
 //         dispatch(getCategories(res.data || defaultProduct)))
-//       .catch(err => console.log(err))export const fetchCart = () => {
+//       .catch(err => console.log(err))
+
+export const fetchCart = () => {
   const currentCart = JSON.parse(localStorage.getItem('cart'))
   if (currentCart !== null) return ({type: ADD_TO_CART, currentCart})
   else return ({type: ADD_TO_CART, currentCart: defaultCart})
-}export const addToCart = (id, price) => {
+}
+
+export const addToCart = (id, price) => {
   const newProduct = {id: id, price: price, quantity: 1}
   let currentCart = JSON.parse(localStorage.getItem('cart'))
   let stringCart = ''
@@ -71,7 +91,9 @@ const getCart = cart => ({type: GET_CART, cart})export const clearCart = () => {
   stringCart = JSON.stringify(currentCart)
   localStorage.setItem('cart', stringCart)
   return ({type: ADD_TO_CART, currentCart})
-}const calcTotal = (cart) => {
+}
+
+const calcTotal = (cart) => {
   cart.total = 0
   cart.myCart.map(item => {
     const productPrice = (item.price * 1)
@@ -79,7 +101,9 @@ const getCart = cart => ({type: GET_CART, cart})export const clearCart = () => {
     cart.total = ((+cart.total + +currentTotal) * 1).toFixed(2)
   })
   return cart
-}/**
+}
+
+/**
  * REDUCER
  */
 export default function (state = defaultCart, action) {
