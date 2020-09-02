@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { AddToCart } from "../store";
-import AddItem_Cart from "./AddItem_Cart";
-import StarRating from "./star-rating";
+import AddItem_Cart from "./addItem_Cart";
+import StarRating from "./start-rating";
 //testing
 
 export default function ProductPanel(props) {
@@ -18,7 +18,7 @@ export default function ProductPanel(props) {
         </Link>
         <StarRating {...props} />
         <p className="product-price">${product.price}</p>
-        <AddToCartButton product={product} />
+        <AddItem_Cart product={product} />
       </div>
     </div>
   );

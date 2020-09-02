@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import CategoryPanel from "./category-panel";
-import ProductPanel from "./product-panel";
+import CategoryPanel from "./category";
+import Product from "./Products";
 import { withRouter, Link } from "react-router-dom";
-import { fetchCategoryThunk, fetchProducts, fetchSearchThunk } from "../store";
+import {fetchCategoryThunk,fetchProducts,fetchSearchThunk} from "../store";
 
 class Home extends Component {
   constructor(props) {
@@ -119,7 +119,7 @@ class Home extends Component {
       );
     } else {
       return this.props.products.map((product) => {
-        return <ProductPanel product={product} key={product.id} />;
+        return <Product product={product} key={product.id} />;
       });
     }
   }

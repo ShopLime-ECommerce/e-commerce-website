@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const Item = require('../db/models/item')
+const sequelize = require('../config/config')
 
 // Gettting all the items
 router.get('/', async (req, res) => {

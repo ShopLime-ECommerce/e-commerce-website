@@ -23,7 +23,7 @@ export const fetchCategories = () =>
   dispatch =>
     axios.get('/api/categories')
       .then(res =>
-        dispatch(getCategories(res.data || defaultProduct)))
+        dispatch(getCategories(res.data || defaultProducts)))
       .catch(err => console.log(err))
 
 /**

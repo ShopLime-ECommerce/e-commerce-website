@@ -2,22 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchProducts } from "../store";
 
-const mapState = (state) => {
-  return {
-    email: state.user.email,
-    products: state.products,
-    user: state.user,
-  };
-};
-//testing
-
-const mapDispatch = (dispatch) => {
-  return {
-    handleFetchProducts() {
-      dispatch(fetchProducts());
-    },
-  };
-};
 
 class Admin extends Component {
   constructor(props) {
@@ -118,5 +102,23 @@ class Admin extends Component {
     );
   }
 }
+
+const mapState = (state) => {
+  return {
+    email: state.user.email,
+    products: state.products,
+    user: state.user,
+  };
+};
+//testing
+
+const mapDispatch = (dispatch) => {
+  return {
+    handleFetchProducts() {
+      dispatch(fetchProducts());
+    },
+  };
+};
+
 
 export default Admin;

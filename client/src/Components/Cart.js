@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { withRouter, Link } from "react-router-dom";
-import _ from "lodash";
+import React, { Component } from "./node_modules/react";
+import { connect } from "./node_modules/react-redux";
+import { withRouter, Link } from "./node_modules/react-router-dom";
+import _ from "./node_modules/lodash";
 import CartItem from "./cart-item";
 
 import {

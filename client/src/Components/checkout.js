@@ -1,12 +1,12 @@
-import React, {Component} from 'react'
-import {connect} from 'react-redux'
-import {withRouter, Link} from 'react-router-dom'
+import React, {Component} from './node_modules/react'
+import {connect} from './node_modules/react-redux'
+import {withRouter, Link} from './node_modules/react-router-dom'
 import { writeFirstName, writeLastName, writeEmail,
   writePhone, writeStreet, writeStreet2, changeState, writeZip,
   postOrder, clearCart } from '../store'
 import Cart from './cart'
-import _ from 'lodash'
-import PaymentForm from './payment-form'
+import _ from './node_modules/lodash'
+import PaymentForm from './Payment-form'
 
 class Checkout extends React.Component {
   constructor(props) {

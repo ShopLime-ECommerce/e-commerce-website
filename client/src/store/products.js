@@ -1,5 +1,5 @@
 import axios from 'axios'
-import history from '../history'
+//import history from '../history'
 
 /**
  * ACTION TYPES
@@ -24,21 +24,21 @@ export const fetchProducts = () =>
   dispatch =>
     axios.get('/api/products/')
       .then(res =>
-        dispatch(getProducts(res.data || defaultProduct)))
+        dispatch(getProducts(res.data || defaultProducts)))
       .catch(err => console.log(err))
 
 export const fetchCategoryThunk = (categoryId) =>
   dispatch =>
     axios.get(`/api/categories/${categoryId}`)
       .then(res =>
-        dispatch(getProducts(res.data || defaultProduct)))
+        dispatch(getProducts(res.data || defaultProducts)))
       .catch(err => console.log(err))
 
 export const fetchSearchThunk = (term) =>
   dispatch =>
     axios.get(`/api/search/${term}`)
       .then(res =>
-        dispatch(getProducts(res.data || defaultProduct)))
+        dispatch(getProducts(res.data || defaultProducts)))
       .catch(err => console.log(err))
 
 /**
