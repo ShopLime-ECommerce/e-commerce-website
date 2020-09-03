@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import CategoryPanel from "./category";
 import Product from "./Products";
 import { withRouter, Link } from "react-router-dom";
-import {fetchCategoryThunk,fetchProducts,fetchSearchThunk} from "../store";
+import { fetchCategoryThunk, fetchProducts, fetchSearchThunk } from "../store";
 
 class Home extends Component {
   constructor(props) {
@@ -19,6 +19,7 @@ class Home extends Component {
 
   render() {
     const { categories, handleGetSearch } = this.props;
+    
     return (
       <section className="home-content">
         <div className="container">
@@ -93,7 +94,7 @@ class Home extends Component {
                 </h2>
               </div>
               <div className="product-grid">
-                {this.props.categories.length > 0 && this.renderProducts()}
+                {this.props.categories && this.props.categories.length > 0 && this.renderProducts()}
               </div>
             </div>
           </div>

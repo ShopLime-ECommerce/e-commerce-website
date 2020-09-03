@@ -13,7 +13,7 @@ export default function ProductPanel(props) {
     <div className="col-sm-4">
       <div className="category-panel panel panel-default text-center">
         <Link to={`/products/${product.id}`}>
-          <img className="img-responsive" src={product.photo} />
+          <img className="img-responsive" src={product.imageUrl} />
           <p className="category-name">{product.name}</p>
         </Link>
         <StarRating {...props} />

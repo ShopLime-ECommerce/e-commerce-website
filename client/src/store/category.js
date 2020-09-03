@@ -19,7 +19,7 @@ const getCategories = categories => ({type: GET_CATEGORIES, categories})
 /**
  * THUNK CREATORS
  */
-export const fetchCategories = () =>
+export const fetchCategoryThunk = () =>
   dispatch =>
     axios.get('/api/categories')
       .then(res =>
